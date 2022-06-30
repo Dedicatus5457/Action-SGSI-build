@@ -6,15 +6,15 @@ on:
       ROM_URL:
         description: 'ROM_URL'
         required: true
-        default: 'https://hugeota.d.miui.com/V13.0.6.0.RGKRUXM/miui_SPESNRUGlobal_V13.0.6.0.RGKRUXM_5a867aa543_11.0.zip'
+        default: 'https://hugeota.d.miui.com/21.5.31/miui_TUCANA_21.5.31_cb42ec9bed_11.0.zip'
       ZIP_NAME:
         description: 'ZIP_NAME'
         required: true
-        default: 'miui_SPESNRUGlobal_V13.0.6.0.RGKRUXM_5a867aa543_11.0.zip'
+        default: 'miui_TUCANA_21.5.31_cb42ec9bed_11.0.zip'
       OS_TYPE:
         description: 'OS_TYPE'
         required: true
-        default: 'Generic'
+        default: 'miui'
       SGSI_TYPE:
         description: 'SGSI_TYPE(AB, A, or BOTH)'
         required: true
@@ -56,6 +56,12 @@ jobs:
       - name: Get the SGSI tool‌‌...
         run: |
           git clone --recurse-submodules https://github.com/xiaoxindada/SGSI-build-tool.git -b 11 $GITHUB_WORKSPACE/Tool-SGSI-build
+
+      - name: Replace custom condensed content...
+        run: |
+          sudo rm -rf $GITHUB_WORKSPACE/Tool-SGSI-build/apps_clean
+          sudo cp -r apps_clean $GITHUB_WORKSPACE/Tool-SGSI-build/apps_clean
+          sudo chmod 777 -R $GITHUB_WORKSPACE/Tool-SGSI-build
 
       - name: Download ROM‌‌...
         run: |
