@@ -10,7 +10,7 @@ on:
       ZIP_NAME:
         description: 'ZIP_NAME'
         required: true
-        default: 'https://hugeota.d.miui.com/21.11.24/miui_GINKGO_21.11.24_6c2c9d575e_11.0.zip'
+        default: 'miui_GINKGO_21.11.24_6c2c9d575e_11.0.zip'
       OS_TYPE:
         description: 'OS_TYPE'
         required: true
